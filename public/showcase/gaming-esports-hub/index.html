@@ -17,6 +17,69 @@
     <button className="btn-glitch" onclick="watchStream()">🔴 Watch Live Stream</button>
   </header>
 
+  <!-- ===== Fantasy Roster Builder (issue #102) START ===== -->
+  <section class="fr" id="fantasy-roster" aria-labelledby="fr-title">
+    <h2 id="fr-title">FANTASY ROSTER BUILDER</h2>
+    <p class="fr-intro">Draft one pro per role without going over the <strong id="fr-cap-label">$50,000</strong> salary cap. Player names, teams and numbers are made-up demo data.</p>
+
+    <div class="fr-dash">
+      <div class="fr-panel">
+        <div class="fr-panel-head">
+          <h3>Salary cap</h3>
+          <span class="fr-small">Drafted <strong id="fr-count">0 / 5</strong></span>
+        </div>
+        <div class="fr-meter" id="fr-meter" role="progressbar" aria-label="Salary cap used" aria-valuemin="0" aria-valuemax="50000" aria-valuenow="0">
+          <div class="fr-meter-fill" id="fr-meter-fill"></div>
+        </div>
+        <div class="fr-meter-text">
+          <span>Spent <strong id="fr-spent">$0</strong></span>
+          <span>Left <strong id="fr-left">$50,000</strong></span>
+        </div>
+      </div>
+
+      <div class="fr-panel">
+        <div class="fr-panel-head">
+          <h3>Team synergy</h3>
+          <span class="fr-synergy-num"><span id="fr-synergy">0</span><span class="fr-small"> / 100</span></span>
+        </div>
+        <div class="fr-meter fr-meter-synergy" id="fr-synergy-bar" role="progressbar" aria-label="Team synergy" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="fr-meter-fill" id="fr-synergy-fill"></div>
+        </div>
+        <p class="fr-small" id="fr-synergy-detail">Role coverage +0 | Teammate chemistry +0 | IGL link +0</p>
+      </div>
+
+      <div class="fr-panel fr-panel-pts">
+        <div class="fr-panel-head"><h3>Projected fantasy points</h3></div>
+        <div class="fr-pts-total" id="fr-total" aria-live="polite">0.0</div>
+        <p class="fr-small">Player points <strong id="fr-base">0.0</strong> <span aria-hidden="true">&times;</span><span class="fr-sr-only">times</span> synergy bonus <strong id="fr-mult">x1.00</strong></p>
+      </div>
+    </div>
+
+    <h3 class="fr-sub">Your roster</h3>
+    <ul class="fr-slots" id="fr-slots" aria-label="Roster slots"></ul>
+    <div class="fr-actions"><button type="button" class="fr-btn fr-btn-ghost" id="fr-clear">Clear roster</button><span class="fr-small">Saved automatically in this browser.</span></div>
+
+    <h3 class="fr-sub">Player bench</h3>
+    <div class="fr-controls">
+      <div class="fr-filters" id="fr-filters" role="group" aria-label="Filter players by role"></div>
+      <div class="fr-sort">
+        <label for="fr-sort">Sort by</label>
+        <select id="fr-sort">
+          <option value="salary-desc">Salary: high to low</option>
+          <option value="salary-asc">Salary: low to high</option>
+          <option value="pts-desc">Projected points</option>
+          <option value="name">Name</option>
+        </select>
+      </div>
+    </div>
+    <p class="fr-small" id="fr-bench-count"></p>
+    <ul class="fr-bench" id="fr-bench" aria-label="Available players"></ul>
+
+    <p class="fr-status" id="fr-status" role="status" aria-live="polite"></p>
+    <p class="fr-small">Synergy: 10 per filled role, 8 per pair of teammates (max 30), 10 per teammate of your IGL (max 20). Each synergy point adds 0.2% to your projected points, so a perfect team gets +20%. These weights are a demo, not real esports data.</p>
+  </section>
+  <!-- ===== Fantasy Roster Builder (issue #102) END ===== -->
+
   <main className="matches">
     <h2>UPCOMING MATCHES</h2>
     <div className="grid">
